@@ -1,0 +1,56 @@
+@media (max-width: 768px) {
+}
+
+body {
+  font-family: "Helvetica", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #f1f3ff;
+}
+
+.carousel-inner img {
+  max-height: 200px;
+  margin: auto;
+}
+
+.testimonial {
+  display: flex;
+  align-items: center;
+  padding: 75px;
+}
+
+.testimonial .testimonial-text {
+  flex: 1;
+  padding: 0 20px;
+  margin-left: 15px;
+}
+
+.testimonial img {
+  width: 70.217px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 80px;
+  margin-left: 20px;
+}
+/* Menerapkan gaya list yang akan menampilkan ikon sebelum setiap elemen daftar */
+.icon-list li::before {
+  content: "\f058"; /* Kode Unicode untuk ikon Font Awesome */
+  font-family: "Font Awesome 5 Free"; /* Nama font dari Font Awesome */
+  font-weight: 900; /* Bobot font untuk ikon yang sesuai */
+  margin-right: 10px; /* Jarak antara ikon dan teks */
+  color: #cfd4ed;
+}
+
+/* Gayakan list lebih lanjut sesuai kebutuhan Anda */
+.icon-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Menerapkan spasi antara ikon dan teks pada ikon berikutnya */
+.icon-list li + li {
+  margin-top: 10px;
+}
