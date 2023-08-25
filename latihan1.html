@@ -1,71 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Latihan1</title>
-    <style>
-      img {
-        max-width: 200px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Binar Car Rental</h1>
-    <div>
-      <a href="#">Home</a> | <a href="#">About</a> | <a href="#">Login</a>
-    </div>
-    <br /><br />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarNav" aria-labelledby="navbarNavLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="navbarNavLabel">Menu</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto"> <!-- Perubahan pada bagian ini -->
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <h2>List Cars</h2>
-    <table>
-      <tr>
-        <th>No</th>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Capacity</th>
-        <th>Price</th>
-        <th>Action</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>
-          <img
-            src="https://i.pinimg.com/474x/24/0b/07/240b07b3019692d4ffd706c538b34e86.jpg"
-            alt="Porsche"
-          />
-        </td>
-        <td>Porsche</td>
-        <td>5</td>
-        <td>Rp 200.000.000</td>
-        <td><a href="#">view</a></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>
-          <img
-            src="https://i.pinimg.com/474x/c2/d0/7d/c2d07dd8ebb0b52ce77556863dafd975.jpg"
-            alt="BMW"
-          />
-        </td>
-        <td>BMW</td>
-        <td>4</td>
-        <td>Rp 150.000.000</td>
-        <td><a href="#">view</a></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>
-          <img
-            src="https://i.pinimg.com/474x/98/e5/54/98e5544e0331e872b6b57dfb1622f5eb.jpg"
-            alt="Lamborghini"
-          />
-        </td>
-        <td>Lamborghini</td>
-        <td>7</td>
-        <td>Rp 250.000.000</td>
-        <td><a href="#">view</a></td>
-      </tr>
-    </table>
-
-    <p>Develop by: bar</p>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
 </html>

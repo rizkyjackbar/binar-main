@@ -26,43 +26,62 @@
         <button
           class="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
+          data-bs-toggle="offcanvas"
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div
-          class="container collapse navbar-collapse justify-content-end p-2"
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
           id="navbarNav"
+          aria-labelledby="navbarNavLabel"
         >
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" style="margin-right: 30px" href="#ourServices"
-                >Our Services</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="margin-right: 30px" href="#whyUs"
-                >Why Us</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="margin-right: 30px" href="#testimonial"
-                >Testimonial</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="margin-right: 30px" href="#faq">FAQ</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-success" style="border-radius: 2px" href="#"
-                >Register</a
-              >
-            </li>
-          </ul>
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="navbarNavLabel">BCR</h5>
+            <button
+              type="button"
+              class="btn-close text-reset"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  style="margin-right: 30px"
+                  href="#ourServices"
+                  >Our Services</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="margin-right: 30px" href="#whyUs"
+                  >Why Us</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  style="margin-right: 30px"
+                  href="#testimonial"
+                  >Testimonial</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="margin-right: 30px" href="#faq"
+                  >FAQ</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-success" style="border-radius: 2px" href="#"
+                  >Register</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -87,7 +106,7 @@
             </div>
           </div>
           <div
-            class="col container-fluid"
+            class="col"
             style="
               justify-content: flex-end;
               display: flex;
@@ -133,7 +152,9 @@
             "
           >
             <div class="container">
-              <h2><b>Best Car Rental for any kind of trip in (Sleman)!</b></h2>
+              <h2 class="layanan-car">
+                <b>Best Car Rental for any kind of trip in (Sleman)!</b>
+              </h2>
               <p style="padding-top: 24px">
                 Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga
                 lebih murah dibandingkan yang lain, kondisi mobil baru, serta
@@ -294,7 +315,7 @@
                           line-height: 20px; /* 142.857% */
                         "
                       >
-                        John Doe
+                        John Doe 10, Los Angles
                       </p>
                     </div>
                   </div>
@@ -336,7 +357,7 @@
                           line-height: 20px; /* 142.857% */
                         "
                       >
-                        Jane Smith
+                        John Dee 32, Bromo
                       </p>
                     </div>
                   </div>
@@ -379,7 +400,7 @@
                           line-height: 20px; /* 142.857% */
                         "
                       >
-                        Jaden Smith
+                        Jaden Smith 25, Yogyakarta
                       </p>
                     </div>
                   </div>
@@ -454,7 +475,7 @@
             "
           >
             <div class="card" style="background-color: #0d28a6; height: 255px">
-              <div class="card-body text-center">
+              <div class="card-body text-center" style="padding-bottom: 100px">
                 <h5
                   class="card-title fw-bold fw-light"
                   style="font-size: 36pxpx; color: #ffffff; padding: 30px"
@@ -471,7 +492,6 @@
                     font-style: normal;
                     font-weight: 300;
                     line-height: 20px;
-                    padding-bottom: 20px;
                   "
                 >
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
