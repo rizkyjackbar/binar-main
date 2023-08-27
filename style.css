@@ -1,4 +1,10 @@
 @media (max-width: 576px) {
+  
+  
+  .karoselBackground {
+    align-items: center;
+  }
+
   .why {
     text-align: center;
   }
