@@ -9,7 +9,6 @@
 //   console.log(variableInTest);
 // }
 
-
 // // let
 // // let variableName
 
@@ -18,3 +17,27 @@
 // console.log (testA);
 // // let testA = 'New testA';
 // // console.log (testA);
+
+// function sgMirror(tinggi) {
+//   for (let i = 0; i < tinggi; i++) {
+//     let bintang = "";
+//     for (let j = 0; j <= i; j++) {
+//       bintang += "* ";
+//     }
+//     console.log(bintang);
+//   }
+// }
+
+// sgMirror(5);
+
+function sgMirror(tinggi) {
+  for (let i = tinggi; i > 0; i--) {
+    let bintang = "";
+    for (let j = 0; j < i; j++) {
+      bintang += "* ";
+    }
+    console.log(bintang);
+  }
+}
+
+sgMirror(5);
