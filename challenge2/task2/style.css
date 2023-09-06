@@ -19,7 +19,9 @@ body {
   background-color: #f1f3ff;
 }
 
-.carousel-inner img {
-  max-height: 200px;
-  margin: auto;
+.form-group .dropdown .btn {
+  min-width: 300px;
+  margin-top: 4px;
 }
+
+
