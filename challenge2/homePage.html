@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Binar Car Rental</title>
+    <title>Cari Mobil</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -87,22 +87,19 @@
     </nav>
 
     <!-- Our Services -->
-    <section id="ourServices">
+    <section id="ourServices" style="margin-bottom: -115px;">
       <div style="background-color: #f1f3ff">
         <div class="row">
           <div class="col">
             <div class="p-3" style="margin-left: 50px; margin-top: 50px">
               <h1><b>Sewa & Rental Mobil Terbaik di kawasan (Sleman)</b></h1>
-              <div>
+              <div style="width: 468px; height: 60px; margin-top: 16px">
                 <p>
                   Selamat datang di Binar Car Rental. Kami menyediakan mobil
                   kualitas terbaik dengan harga terjangkau. Selalu siap melayani
                   kebutuhanmu untuk sewa mobil selama 24 jam.
                 </p>
               </div>
-              <a class="btn btn-success" href="#" style="border-radius: 2px"
-                >Mulai Sewa Mobil</a
-              >
             </div>
           </div>
           <div
@@ -138,8 +135,102 @@
       </div>
     </section>
 
+    <section id="fitur">
+      <div class="container mt-5">
+        <div class="card" style="box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15); border-radius: 8px;">
+          <div class="card-body">
+            <style>
+              .form-row {
+                display: flex;
+                flex-wrap: wrap;
+              }
+
+              .form-control {
+                margin-top: 4px;
+              }
+
+              .form-group {
+                flex: 1;
+                margin-right: 10px; /* Atur jarak antara elemen */
+                margin-top: 24px;
+                margin-bottom: 24px;
+              }
+
+              .form-group:last-child {
+                margin-right: 0; /* Menghapus margin kanan elemen terakhir */
+              }
+
+              .align-button {
+                display: flex;
+                align-items: flex-end;
+                margin-top: 10px; /* Jarak antara tombol dan elemen-elemen input */
+              }
+            </style>
+
+            <form id="searchForm">
+              <div class="form-row">
+                <div class="form-group" >
+                  <div class="dropdown" >
+                    <label for="driver">Tipe Driver:</label>
+                    <div>
+                      <button
+                        class="btn dropdown"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        Pilih Tipe Driver 
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li>
+                          <a class="dropdown-item" href="#">Dengan Sopir</a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#"
+                            >Tanpa Sopir (Lepas Kunci)</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="tanggal">Tanggal:</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="tanggal"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="waktu">Waktu Jemput & Ambil:</label>
+                  <input type="time" class="form-control" id="waktu" required />
+                </div>
+                <div class="form-group">
+                  <label for="jumlahPenumpang">Jumlah Penumpang:</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="jumlahPenumpang"
+                    required
+                  />
+                </div>
+                <div class="align-button" style="margin-top: 24px; margin-bottom: 24px;">
+                  <button type="submit" class="btn btn-success">
+                    Cari Mobil
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
-    <section style="padding-top: 168px; margin-bottom: 100px">
+    <section style="padding-top: 168px; margin-bottom: 100px; margin-top: -90px;">
       <div class="container">
         <div
           class="row"
