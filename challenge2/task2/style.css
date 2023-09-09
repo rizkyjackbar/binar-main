@@ -7,13 +7,6 @@ body {
   padding: 0;
 }
 
-#fitur {
-  font-family: Rubik;
-  /* font-size: 12px; */
-  font-style: normal;
-  font-weight: 300;
-  line-height: 18px;
-}
 
 .navbar {
   background-color: #f1f3ff;
@@ -24,4 +17,28 @@ body {
   margin-top: 4px;
 }
 
+.search {
+  margin-top: 65px;
+}
 
+.search .search__card {
+  background: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+.search .search__card .search__time .form-select {
+  background-image: url("Bahan/fi_clock.png");
+  background-size: 20px auto;
+}
+
+.search .search__card .form-select:hover {
+  border: 1px solid #5CB85F;
+  border-radius: 2px;
+}
+
+.search .search__card .form-select option:hover, .search .search__card .form-select option:checked {
+  background: #C9E7CA;
+  color: #5CB85F;
+}
