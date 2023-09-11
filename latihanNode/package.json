@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
   "repository": {
     "type": "git",
@@ -16,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/rizkyjackbar/binar-main/issues"
   },
-  "homepage": "https://github.com/rizkyjackbar/binar-main#readme"
+  "homepage": "https://github.com/rizkyjackbar/binar-main#readme",
+  "dependencies": {
+    "chalk": "^5.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
