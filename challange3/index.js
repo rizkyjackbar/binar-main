@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const port = 3000; // Anda bisa menggunakan port lain jika diperlukan
 
@@ -809,11 +810,12 @@ const cars = [
   }
 ];
 
-// console.log(cars);
+const createCars = [];
 
 app.use(express.json());
+app.use(bodyParser.json());
 
-// Route untuk request / (ping)
+// Route untuk request ping
 app.get('/', (req, res) => {
   res.json({ message: 'Ping successfully' });
 });
@@ -835,6 +837,13 @@ app.get('/cars/:id', (req, res) => {
 });
 
 // // Route untuk request create cars
+app.post('/create-cars', (req, res) => {
+  const newCar = req.body; // Data mobil baru dari permintaan POST
+  createCars.push(newCar); // Menambahkan data mobil baru ke dalam array
+  res.json(createCars); // Merespon dengan array yang berisi data mobil
+});
+
+
 // app.post('/create', (req, res) => {
 //   const newCar = req.body;
 //   newCar.id = cars.length + 1; // ID baru adalah panjang array + 1
