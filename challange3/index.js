@@ -833,17 +833,6 @@ app.get('/cars/:id', (req, res) => {
 
   res.json(car);
 });
-// // Route untuk request detail cars berdasarkan ID
-// app.get('/detail/:id', (req, res) => {
-//   const id = parseInt(req.params.id);
-//   const car = cars.find((c) => c.id === id);
-
-//   if (!car) {
-//     return res.status(404).json({ message: 'Car not found' });
-//   }
-
-//   res.json(car);
-// });
 
 // // Route untuk request create cars
 // app.post('/create', (req, res) => {
