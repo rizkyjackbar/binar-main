@@ -823,6 +823,16 @@ app.get('/list', (req, res) => {
   res.json(cars);
 });
 
+app.get('/cars/:id', (req, res) => {
+  const carId = req.params.id;
+  const car = cars.find((car) => car.id === carId);
+
+  if (!car) {
+    return res.status(404).json({ message: 'Mobil tidak ditemukan' });
+  }
+
+  res.json(car);
+});
 // // Route untuk request detail cars berdasarkan ID
 // app.get('/detail/:id', (req, res) => {
 //   const id = parseInt(req.params.id);
