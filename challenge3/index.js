@@ -7,8 +7,8 @@ const port = 3000; // Anda bisa menggunakan port lain jika diperlukan
 const cars = [
   {
     "id": "6e2bc663-5197-441a-957b-bc75e4a2da7c",
-    "plate": "DBH-3491",
-    "manufacture": "Ford",
+    // "plate": "DBH-3491",
+    // "manufacture": "Ford",
     "model": "F150",
     "image": "./images/car01.min.jpg",
     "rentPerDay": 200000,
