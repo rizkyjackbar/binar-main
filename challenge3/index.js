@@ -4,7 +4,7 @@ app.use(express.json());
 
 const PORT = 3000;
 
-const carsList = require('./cars.json');
+const carsList = require("./cars.json");
 
 app.get("/", (req, res) => {
   res.json({ message: "Ping Successfully" });
