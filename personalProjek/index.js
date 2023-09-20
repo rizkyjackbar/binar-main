@@ -124,6 +124,7 @@ app.post("/cars", (req, res) => {
 });
 
 // Endpoint untuk mengubah car berdasarkan ID
+
 app.put("/cars/:id", (req, res) => {
   const id = req.params.id; // Tidak perlu parseInt
   const updatedCar = req.body;
@@ -148,6 +149,10 @@ app.delete("/cars/:id", (req, res) => {
 
   data.splice(index, 1);
   res.status(204).send();
+});
+
+app.get("*", (req, res) => {
+  res.status(404).send("404 Not Found");
 });
 
 // Jalankan server pada port yang telah ditentukan
