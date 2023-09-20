@@ -7,7 +7,7 @@ const PORT = 3000;
 const carsList = require('./cars.json');
 
 app.get("/", (req, res) => {
-  res.json({ message: "Ping successfully" });
+  res.json({ message: "Ping Successfully" });
 });
 
 app.get("/cars", (req, res) => {
