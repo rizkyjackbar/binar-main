@@ -1,8 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 3000; // Anda bisa menggunakan port lain jika diperlukan
-
+const port = 3000; 
 // Data array mobil (contoh data)
 const cars = [
   {
