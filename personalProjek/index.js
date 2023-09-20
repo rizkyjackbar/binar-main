@@ -10,8 +10,8 @@ app.use(express.json());
 // Anda bisa menggunakan port lain jika diperlukan
 const PORT = 9000;
 
-// Data sementara untuk menyimpan informasi
-let data = [
+// carsList sementara untuk menyimpan informasi
+let carsList = [
 {
     id: "6e2bc663-5197-441a-957b-bc75e4a2da7c",
     image: "./images/car01.min.jpg",
@@ -101,13 +101,13 @@ app.get("/", (req, res) => {
 
 // Endpoint untuk mendapatkan semua car
 app.get("/cars", (req, res) => {
-  res.json(data);
+  res.json(carsList);
 });
 
 // Endpoint untuk mendapatkan car berdasarkan ID
 app.get("/cars/:id", (req, res) => {
   const id = req.params.id;
-  const car = data.find((car) => car.id === id);
+  const car = carsList.find((car) => car.id === id);
 
   if (!car) {
     return res.status(404).json({ error: "Car not found" });
@@ -119,7 +119,7 @@ app.get("/cars/:id", (req, res) => {
 // Endpoint untuk menambahkan car baru
 app.post("/cars", (req, res) => {
   const newCar = req.body;
-  data.push(newCar);
+  carsList.push(newCar);
   res.status(201).json(newCar);
 });
 
@@ -127,26 +127,26 @@ app.post("/cars", (req, res) => {
 app.put("/cars/:id", (req, res) => {
   const id = req.params.id; // Tidak perlu parseInt
   const updatedCar = req.body;
-  const index = data.findIndex((item) => item.id === id);
+  const index = carsList.findIndex((item) => item.id === id);
 
   if (index === -1) {
     return res.status(404).json({ error: "Car not found" });
   }
 
-  data[index] = updatedCar;
+  carsList[index] = updatedCar;
   res.json(updatedCar);
 });
 
 // Endpoint untuk menghapus car berdasarkan ID
 app.delete("/cars/:id", (req, res) => {
   const id = req.params.id; // Tidak perlu parseInt
-  const index = data.findIndex((car) => car.id === id);
+  const index = carsList.findIndex((car) => car.id === id);
 
   if (index === -1) {
     return res.status(404).json({ error: "Car not found" });
   }
 
-  data.splice(index, 1);
+  carsList.splice(index, 1);
   res.status(204).send();
 });
 
