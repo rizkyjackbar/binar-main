@@ -1,16 +1,9 @@
-// Import library Express.js
 const express = require("express");
-
-// Inisialisasi aplikasi Express
 const app = express();
-
-// Middleware untuk mengizinkan aplikasi menerima JSON
 app.use(express.json());
 
-// Anda bisa menggunakan port lain jika diperlukan
 const PORT = 3000;
 
-// carsList sementara untuk menyimpan informasi
 let carsList = [
 {
     id: "6e2bc663-5197-441a-957b-bc75e4a2da7c",
@@ -94,17 +87,14 @@ let carsList = [
 },
 ];
 
-// Route untuk request ping
 app.get("/", (req, res) => {
   res.json({ message: "Ping successfully" });
 });
 
-// Endpoint untuk mendapatkan semua car
 app.get("/cars", (req, res) => {
   res.json(carsList);
 });
 
-// Endpoint untuk mendapatkan car berdasarkan ID
 app.get("/cars/:id", (req, res) => {
   const id = req.params.id;
   const car = carsList.find((car) => car.id === id);
@@ -116,16 +106,14 @@ app.get("/cars/:id", (req, res) => {
   res.json(car);
 });
 
-// Endpoint untuk menambahkan car baru
 app.post("/cars", (req, res) => {
   const newCar = req.body;
   carsList.push(newCar);
   res.status(201).json(newCar);
 });
 
-// Endpoint untuk mengubah car berdasarkan ID
 app.put("/cars/:id", (req, res) => {
-  const id = req.params.id; // Tidak perlu parseInt
+  const id = req.params.id;
   const updatedCar = req.body;
   const index = carsList.findIndex((item) => item.id === id);
 
@@ -137,9 +125,8 @@ app.put("/cars/:id", (req, res) => {
   res.json(updatedCar);
 });
 
-// Endpoint untuk menghapus car berdasarkan ID
 app.delete("/cars/:id", (req, res) => {
-  const id = req.params.id; // Tidak perlu parseInt
+  const id = req.params.id;
   const index = carsList.findIndex((car) => car.id === id);
 
   if (index === -1) {
@@ -154,7 +141,6 @@ app.get("*", (req, res) => {
   res.status(404).send("404 Not Found");
 });
 
-// Jalankan server pada port yang telah ditentukan
 app.listen(PORT, () => {
   console.log(`Server berjalan di http://localhost:${PORT}`);
 });
