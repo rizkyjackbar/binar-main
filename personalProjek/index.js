@@ -124,7 +124,6 @@ app.post("/cars", (req, res) => {
 });
 
 // Endpoint untuk mengubah car berdasarkan ID
-
 app.put("/cars/:id", (req, res) => {
   const id = req.params.id; // Tidak perlu parseInt
   const updatedCar = req.body;
