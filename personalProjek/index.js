@@ -124,18 +124,6 @@ app.post("/cars", (req, res) => {
 });
 
 // Endpoint untuk mengubah car berdasarkan ID
-// app.put("/cars/:id", (req, res) => {
-//   const id = parseInt(req.params.id);
-//   const updatedCar = req.body;
-//   const index = data.findIndex((item) => item.id === id);
-
-//   if (index === -1) {
-//     return res.status(404).json({ error: "Car not found" });
-//   }
-
-//   data[index] = updatedCar;
-//   res.json(updatedCar);
-// });
 app.put("/cars/:id", (req, res) => {
   const id = req.params.id; // Tidak perlu parseInt
   const updatedCar = req.body;
