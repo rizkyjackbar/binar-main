@@ -1,36 +1,27 @@
-Repository Untuk Challange 3
+Repositori Untuk Tantangan 3
 
-Step for making Challange 3
+Langkah membuat Tantangan 3
 
-Make Rest API with Express
+Buat Rest API dengan Express
 
-1. Create new folder
-2. Init node project, by running command:
-    `npm init -y` or `yarn init`
-3. Create http server using express
-    - Install express, by running command: 
-        `npm install express`
-    - Create new js main file (index.js)
-        - Dont forget to import express
-        - Create express application
-        - Start listen
-4. Run http server, by running command
-    `node index.js`
-    - To make it auto restarting, we can use nodemon
-        - install nodemon: `npm install nodemon`
-        - To run http server using nodemon: `nodemon index.js`
-        - To run it via custom script, we can add it in package.json file
-            - Add new script with command: `nodemon index.js`
-            - For example, inside scripts: "start" : "nodemon index.js"
-            - To run custom script: `npm run start`
-5. Add request handler for url GET '/'
-6. To add default routing, we can add url "*". It will catch all not found routes
-
-//Add REST API
-1. List
-    - GET <collection url>, no request body, response json
-        - For example: GET /feeds
-2. Get Detail
-    - GET <resource url>, no request body, need path parameter, response json
-        - For example: GET /feeds/:id
-
+1. Buat folder baru
+2. Init proyek node, dengan menjalankan perintah:
+    `npm init -y` atau `yarn init`
+3. Buat server http menggunakan express
+    - Instal express, dengan menjalankan perintah:
+        `npm instal express`
+    - Buat file utama js baru (index.js)
+        - Jangan lupa untuk mengimpor express
+        - Buat aplikasi express
+        - Mulailah mendengarkan
+4. Jalankan server http, dengan menjalankan perintah
+    `indeks script.js`
+    - Untuk membuat auto restart kita bisa menggunakan nodemon
+        - instal nodemon: `npm instal nodemon`
+        - Untuk menjalankan server http menggunakan nodemon: `nodemon index.js`
+        - Untuk menjalankannya melalui custom script, kita dapat menambahkannya di file package.json
+            - Tambahkan skrip baru dengan perintah: `nodemon index.js`
+            - Misalnya, di dalam skrip: "start" : "nodemon index.js"
+            - Untuk menjalankan nya, mengguanakan perintah: `nodemon index.js`
+5. Tambahkan penangan permintaan untuk url GET '/'
+6. Untuk menambahkan routing default, kita dapat menambahkan url "*". Ini akan menangkap semua rute yang tidak ditemukan
