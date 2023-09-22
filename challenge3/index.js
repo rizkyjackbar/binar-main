@@ -16,7 +16,7 @@ app.get("/cars", (req, res) => {
 
 app.get("/cars/:id", (req, res) => {
   const id = req.params.id;
-  const car = carsList.find((car) => car.id === id);
+  const car = carsList.find((car) => car.id == id);
 
   if (!car) {
     return res.status(404).json({ error: "Car not found" });
@@ -34,7 +34,7 @@ app.post("/cars", (req, res) => {
 app.put("/cars/:id", (req, res) => {
   const id = req.params.id;
   const updatedCar = req.body;
-  const index = carsList.findIndex((item) => item.id === id);
+  const index = carsList.findIndex((item) => item.id == id);
 
   if (index === -1) {
     return res.status(404).json({ error: "Car not found" });
