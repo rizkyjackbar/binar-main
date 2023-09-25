@@ -3,6 +3,7 @@ const app = express();
 app.use(express.json());
 
 const PORT = 3000;
+const { carsListMiddleware } = require("./carsListMiddleware");
 
 const carsList = require("./cars.json");
 
@@ -10,8 +11,8 @@ app.get("/", (req, res) => {
   res.json({ message: "Ping Successfully" });
 });
 
-app.get("/cars", (req, res) => {
-  res.json(carsList);
+app.get("/cars", carsListMiddleware, (req, res) => {
+  res.json(res.locals.carsList);
 });
 
 app.get("/cars/:id", (req, res) => {
