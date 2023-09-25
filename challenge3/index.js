@@ -7,12 +7,10 @@ const PORT = 3000;
 const carsList = require("./cars.json");
 
 const {pingMiddleware} = require("./pingMiddleware")
+const { carsMiddleware } = require("./carsMiddleware");
 
 app.use(pingMiddleware);
-
-app.get("/cars", (req, res) => {
-  res.json(carsList);
-});
+app.get("/cars", carsMiddleware);
 
 app.get("/cars/:id", (req, res) => {
   const id = req.params.id;
