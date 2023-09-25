@@ -25,3 +25,4 @@ Buat Rest API dengan Express
             - Untuk menjalankan nya, mengguanakan perintah: `nodemon index.js`
 5. Tambahkan penangan permintaan untuk url GET '/'
 6. Untuk menambahkan routing default, kita dapat menambahkan url "*". Ini akan menangkap semua rute yang tidak ditemukan
+7. Maaf ka untuk middleware nya saya hanya make di 2 endpoint saja, yaitu di listCars dan listCarsById
