@@ -4,6 +4,7 @@ app.use(express.json());
 
 const PORT = 3000;
 const { carsListMiddleware } = require("./carsListMiddleware");
+const { carMiddleware } = require("./carMiddleware");
 
 const carsList = require("./cars.json");
 
@@ -15,15 +16,8 @@ app.get("/cars", carsListMiddleware, (req, res) => {
   res.json(res.locals.carsList);
 });
 
-app.get("/cars/:id", (req, res) => {
-  const id = req.params.id;
-  const car = carsList.find((car) => car.id == id);
-
-  if (!car) {
-    return res.status(404).json({ error: "Car not found" });
-  }
-
-  res.json(car);
+app.get("/cars/:id", carsListMiddleware, carMiddleware, (req, res) => {
+  res.json(res.locals.car);
 });
 
 app.post("/cars", (req, res) => {
