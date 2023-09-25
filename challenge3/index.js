@@ -6,9 +6,9 @@ const PORT = 3000;
 
 const carsList = require("./cars.json");
 
-app.get("/", (req, res) => {
-  res.json({ message: "Ping Successfully" });
-});
+const {pingMiddleware} = require("./pingMiddleware")
+
+app.use(pingMiddleware);
 
 app.get("/cars", (req, res) => {
   res.json(carsList);
