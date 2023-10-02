@@ -13,7 +13,7 @@ let feeds = [
   {
     id: uuidv4() ,
     title: "Hello World",
-    content: "Hello Jakarta",   
+    content: "Hello Jakarta", 
     category: "IT"
   },
   {
