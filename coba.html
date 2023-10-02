@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Mobil</title>
+    <!-- Tambahkan Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Daftar Mobil</h1>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#tambahMobilModal"
+      >
+        Tambah Mobil
+      </button>
+
+      <!-- Daftar Mobil dalam bentuk Card -->
+      <div class="row mt-3" id="daftarMobil">
+        <!-- Isi card akan diisi melalui JavaScript -->
+      </div>
+    </div>
+
+    <!-- Modal Tambah Mobil -->
+    <div
+      class="modal fade"
+      id="tambahMobilModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="tambahMobilModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="tambahMobilModalLabel">
+              Tambah Mobil Baru
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="formTambahMobil">
+              <div class="form-group">
+                <label for="namaMobil">Nama Mobil</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="namaMobil"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="tahunProduksi">Tahun Produksi</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tahunProduksi"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="gambarMobil">URL Gambar Mobil</label>
+                <input type="text" class="form-control" id="gambarMobil" />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Tutup
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="tambahMobil()"
+            >
+              Simpan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tambahkan Bootstrap JavaScript dan jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript untuk menambah, menghapus, dan mengedit data -->
+    <script>
+      // Data mobil sementara (bisa disimpan di database)
+      let mobilData = [
+        {
+          nama: "Mobil A",
+          tahun: "2020",
+          gambar: "https://example.com/mobil-a.jpg",
+        },
+        {
+          nama: "Mobil B",
+          tahun: "2022",
+          gambar: "https://example.com/mobil-b.jpg",
+        },
+        {
+          nama: "Mobil C",
+          tahun: "2023",
+          gambar: "https://example.com/mobil-b.jpg",
+        },
+      ];
+
+      // Fungsi untuk menampilkan data mobil dalam bentuk card
+      function tampilkanDataMobil() {
+        const daftarMobil = document.getElementById("daftarMobil");
+        daftarMobil.innerHTML = "";
+
+        for (const mobil of mobilData) {
+          const card = document.createElement("div");
+          card.classList.add("col-md-4", "mb-3");
+
+          card.innerHTML = `
+                    <div class="card">
+                        <img src="${mobil.gambar}" class="card-img-top" alt="${mobil.nama}">
+                        <div class="card-body">
+                            <h5 class="card-title">${mobil.nama}</h5>
+                            <p class="card-text">Tahun Produksi: ${mobil.tahun}</p>
+                            <button type="button" class="btn btn-info btn-sm" onclick="editMobil('${mobil.nama}', '${mobil.tahun}', '${mobil.gambar}')">Edit</button>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="hapusMobil('${mobil.nama}')">Hapus</button>
+                        </div>
+                    </div>
+                `;
+
+          daftarMobil.appendChild(card);
+        }
+      }
+
+      // Fungsi untuk menambahkan mobil baru
+      function tambahMobil() {
+        const namaMobil = document.getElementById("namaMobil").value;
+        const tahunProduksi = document.getElementById("tahunProduksi").value;
+        const gambarMobil = document.getElementById("gambarMobil").value;
+
+        if (namaMobil && tahunProduksi && gambarMobil) {
+          mobilData.push({
+            nama: namaMobil,
+            tahun: tahunProduksi,
+            gambar: gambarMobil,
+          });
+          tampilkanDataMobil();
+          $("#tambahMobilModal").modal("hide");
+        }
+      }
+
+      // Fungsi untuk menghapus mobil
+      function hapusMobil(nama) {
+        mobilData = mobilData.filter((mobil) => mobil.nama !== nama);
+        tampilkanDataMobil();
+      }
+
+      // Fungsi untuk mengedit mobil
+      function editMobil(nama, tahun, gambar) {
+        const index = mobilData.findIndex((mobil) => mobil.nama === nama);
+
+        if (index !== -1) {
+          const newNama = prompt("Nama Mobil Baru:", nama);
+          const newTahun = prompt("Tahun Produksi Baru:", tahun);
+          const newGambar = prompt("URL Gambar Mobil Baru:", gambar);
+
+          if (newNama !== null && newTahun !== null && newGambar !== null) {
+            mobilData[index].nama = newNama;
+            mobilData[index].tahun = newTahun;
+            mobilData[index].gambar = newGambar;
+            tampilkanDataMobil();
+          }
+        }
+      }
+
+      // Tampilkan data mobil saat halaman dimuat
+      tampilkanDataMobil();
+    </script>
+  </body>
+</html>
