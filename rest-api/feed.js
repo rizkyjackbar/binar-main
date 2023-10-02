@@ -1,23 +1,23 @@
-const express = require("express");
+const { v4: uuidv4 } = require('uuid');
 
-const app = express();
-const PORT = 8000;
+// const app = express();
+// const PORT = 8000;
 
 let feeds = [
   {
-    id: 1,
+    id: uuidv4() ,
     title: "Hello World",
     content: "Hello Bali",
     category: "Education"
   },
   {
-    id: 2,
+    id: uuidv4() ,
     title: "Hello World",
     content: "Hello Jakarta",   
     category: "IT"
   },
   {
-    id: 3,
+    id: uuidv4() ,
     title: "Hello World",
     content: "Hello Yogyakarta",
     category: "Learning"
