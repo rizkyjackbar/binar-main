@@ -74,6 +74,17 @@ app.delete("/api/cars/:id", async (req, res) => {
   }
 });
 
+// Rute untuk mendapatkan data mobil berdasarkan ID
+app.get("/api/cars/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const car = await Car.getById(id);
+    res.status(200).json(car);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+});
+
 // Rute untuk melihat daftar mobil
 app.get("/api/cars", async (req, res) => {
   try {

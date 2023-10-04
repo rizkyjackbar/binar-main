@@ -12,6 +12,31 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
+
+    static async updateById(id, updatedData) {
+      try {
+        const car = await this.findByPk(id);
+        if (!car) {
+          throw new Error("Mobil tidak ditemukan");
+        }
+        await car.update(updatedData);
+        return car;
+      } catch (error) {
+        throw error;
+      }
+    }
+
+    static async getById(id) {
+      try {
+        const car = await this.findByPk(id);
+        if (!car) {
+          throw new Error("Mobil tidak ditemukan");
+        }
+        return car;
+      } catch (error) {
+        throw error;
+      }
+    }
   }
   Car.init({
     name: DataTypes.STRING,
