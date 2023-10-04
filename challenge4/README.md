@@ -2,7 +2,7 @@ README untuk Challenge4 (Kak haris maaf, readme nya pake bahasa indo, aku kurang
 
 ## Instalasi
 
-1. Clone repositori.
+1. Clone repositori. ('git clone https://github.com/rizkyjackbar/binar-main.git')
 2. Jalankan `npm install` untuk menginstal dependensi.
 
 ## Penggunaan
