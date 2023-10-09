@@ -2,14 +2,14 @@ const {
   DB_USERNAME = "postgres",
   DB_PASSWORD = "prominent2020",
   DB_HOST = "127.0.0.1",
-  DB_NAME = ""
+  DB_NAME = "db_fsw1_km5"
 } = process.env;
 
 module.exports={
   "development": {
     "username": DB_USERNAME,
     "password": DB_PASSWORD,
-    "database": "challenge4",
+    "database": DB_NAME,
     "host": DB_HOST,
     "dialect": "postgres"
   },
