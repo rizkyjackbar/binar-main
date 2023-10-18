@@ -4,6 +4,10 @@ exports.create =(payload) => {
     return User.create(payload)
 };
 
-exports.login = () => {
-    return User.findAll(payload)
+exports.findUserByEmail = (email) => {
+    return User.findOne({ where: { email }})
 }
+
+// exports.login = () => {
+//     return User.findAll(payload)
+// }
