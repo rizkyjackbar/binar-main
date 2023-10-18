@@ -11,7 +11,7 @@ const feedController = require('./app/controllers/feed.js')
 const userController = require('./app/controllers/user.js')
 
 const app = express();
-const PORT = 3000;
+const PORT = 3500;
 
 app.use(express.json());
 
@@ -44,6 +44,6 @@ app.post('/register', userController.register);
 
 app.post('/login', userController.login);
 
-app.listen(PORT, () => console.log('Listening on http://localhost:3000'))
+app.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`))
 
 

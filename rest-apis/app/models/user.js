@@ -33,7 +33,12 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     phoneNumber: DataTypes.STRING,
-    address: DataTypes.STRING
+    address: DataTypes.STRING,
+    role: {
+      type: DataTypes.ENUM('SUPERADMIN', 'ADMIN', 'MEMBER'),
+      allowNull: false,
+      defaultValue: 'MEMBER'
+    }
   }, {
     sequelize,
     modelName: 'User',

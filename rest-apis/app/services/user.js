@@ -39,11 +39,13 @@ exports.checkUser = async (credentials) => {
             throw new ApplicationError('Email not found', 500);
         }
 
-        const checkedPassword = await authService.checkPasssword(password, user.encryptPassword)  
+        const checkedPassword = await authService.checkPasssword(password, user.encryptPassword);
+
         if(!checkedPassword){
             throw new ApplicationError('Password is wrong', 500);
         }
         return user;
+        
     }catch(err){
         throw new ApplicationError(err.message, 500);
     }

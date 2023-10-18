@@ -1,19 +1,20 @@
 const authService = require('./../services/auth')
 const userService = require('./../services/user')
 
-let users = []; 
+let users = [];
 
 exports.register = async (req, res) => {
-    
-    try{
+    try {
         const body = req.body;
-        const data = await userService.create(body);
+
+        const data = await userService.create(body)
+
         res.json({
             status: "OK",
-            message: "Successfully created",
+            message: "Success",
             data
-        }) 
-    } catch(err){
+        });
+    } catch (err) {
         res.status(err.statusCode).json({
             status: "FAIL",
             message: err.message,
@@ -22,20 +23,21 @@ exports.register = async (req, res) => {
 }
 
 exports.login = async (req, res) => {
-    try{
+    try {
         const credentials = req.body;
 
-        const user = userService.checkUser(credentials)
-
+        const user = await userService.checkUser(credentials)
         res.json({
             status: 'OK',
             message: 'Succesful',
             data: user
         })
-    } catch (err){
+
+    } catch (err) {
         res.status(err.statusCode).json({
             status: "FAIL",
             message: `Login failed: ${err.message}`,
         })
     }
 }
+
