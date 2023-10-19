@@ -11,7 +11,7 @@ app.use('/api', userRoutes);
 // Menggunakan rute yang memerlukan autentikasi
 app.use('/api/secure', secureRoutes);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8100;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
