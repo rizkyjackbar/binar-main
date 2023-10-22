@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
       age: DataTypes.INTEGER,
       address: DataTypes.STRING,
       role: {
-        type: DataTypes.ENUM(["superadmin", "admin", "member"]),
-        defaultValue: "member",
+        type: DataTypes.ENUM(["Superadmin", "Admin", "Member"]),
+        defaultValue: "Member",
       },
     },
     {
