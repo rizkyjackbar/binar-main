@@ -1,9 +1,0 @@
-const dotenv = require("dotenv")
-const path = require("path")
-
-// To read dotenv during the migration
-dotenv.config()
-
-module.exports = {
-  config: path.resolve("config", "config.js"),
-}
