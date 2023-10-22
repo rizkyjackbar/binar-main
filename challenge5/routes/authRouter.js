@@ -5,11 +5,12 @@ const Authenticate = require("../middlewares/authenticate")
 const checkRole = require("../middlewares/checkRole")
 
 router.post("/superadmin/login", Auth.login)
+
 router.post(
   "/admin/register",
   Authenticate,
-  checkRole("superadmin"),
-  Auth.login
+  checkRole(["Superadmin"]),
+  Auth.register
 )
 
 router.post("/admin/login", Auth.login)

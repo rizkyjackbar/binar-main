@@ -7,6 +7,7 @@ const register = async (req, res, next) => {
   try {
     const { name, email, password, confirmPassword, age, address } =
       req.body
+      let newUser
 
     const user = await Auth.findOne({
       where: {
@@ -40,19 +41,18 @@ const register = async (req, res, next) => {
     )
 
     if (req.user) {
-      if (req.user.type == "superadmin") {
+      if (req.user.role == "Superadmin") {
         newUser = await User.create({
           name,
           age,
           address,
-          role: "admin",
+          role: "Admin",
         })
       } else {
         newUser = await User.create({
           name,
           age,
           address,
-          dealerId,
         })
       }
     }
