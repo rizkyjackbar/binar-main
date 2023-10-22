@@ -19,7 +19,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       role: {
-        type: Sequelize.ENUM(["superadmin", "admin", "member"]),
+        type: Sequelize.ENUM(["Superadmin", "Admin", "Member"]),
       },
       createdAt: {
         allowNull: false,

@@ -17,9 +17,9 @@ module.exports = {
     await queryInterface.bulkInsert("Users", [
       {
         name: "Rizky",
-        address: "Yogyakarta",
         age: 21,
-        role: "superadmin",
+        address: "Yogyakarta",
+        role: "Superadmin",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
