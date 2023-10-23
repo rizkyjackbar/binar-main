@@ -413,7 +413,7 @@
                     },
                     "password": {
                       "type": "string",
-                      "example": "rizkyganteng"
+                      "example": "rizky123"
                     }
                   }
                 }
@@ -492,19 +492,19 @@
                     },
                     "password": {
                       "type": "string",
-                      "example": "rizkyganteng"
+                      "example": "rizky123"
                     },
                     "email": {
                       "type": "string",
                       "example": "rizky@mail.com"
                     },
-                    "role" {
+                    "role": {
                       "type": "string",
                       "example": "member"
                     },
                     "confirmPassword": {
                       "type": "string",
-                      "example": "rizkyganteng"
+                      "example": "rizky123"
                     },
                     "age": {
                       "type": "integer",
