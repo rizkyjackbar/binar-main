@@ -498,6 +498,10 @@
                       "type": "string",
                       "example": "rizky@mail.com"
                     },
+                    "role" {
+                      "type": "string",
+                      "example": "member"
+                    },
                     "confirmPassword": {
                       "type": "string",
                       "example": "rizkyganteng"
