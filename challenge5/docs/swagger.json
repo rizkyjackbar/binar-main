@@ -207,19 +207,19 @@
                   "properties": {
                     "name": {
                       "type": "string",
-                      "example": "Dika"
+                      "example": "rizky"
                     },
                     "password": {
                       "type": "string",
-                      "example": "dika123"
+                      "example": "rizky123"
                     },
                     "email": {
                       "type": "string",
-                      "example": "dika@mail.com"
+                      "example": "rizky@mail.com"
                     },
                     "confirmPassword": {
                       "type": "string",
-                      "example": "dika123"
+                      "example": "rizky123"
                     },
                     "age": {
                       "type": "integer",
@@ -409,11 +409,11 @@
                   "properties": {
                     "email": {
                       "type": "string",
-                      "example": "dika@mail.com"
+                      "example": "rizky@mail.com"
                     },
                     "password": {
                       "type": "string",
-                      "example": "dikaganteng"
+                      "example": "rizkyganteng"
                     }
                   }
                 }
@@ -488,19 +488,19 @@
                   "properties": {
                     "name": {
                       "type": "string",
-                      "example": "dika"
+                      "example": "rizky"
                     },
                     "password": {
                       "type": "string",
-                      "example": "dikaganteng"
+                      "example": "rizkyganteng"
                     },
                     "email": {
                       "type": "string",
-                      "example": "dika@mail.com"
+                      "example": "rizky@mail.com"
                     },
                     "confirmPassword": {
                       "type": "string",
-                      "example": "dikaganteng"
+                      "example": "rizkyganteng"
                     },
                     "age": {
                       "type": "integer",
@@ -602,7 +602,7 @@
                             },
                             "name": {
                               "type": "string",
-                              "example": "dika"
+                              "example": "rizky"
                             },
                             "age": {
                               "type": "integer",
@@ -635,7 +635,7 @@
                                 },
                                 "email": {
                                   "type": "string",
-                                  "example": "dika@gmail.com"
+                                  "example": "rizky@gmail.com"
                                 }
                               }
                             }
@@ -721,7 +721,7 @@
                               },
                               "name": {
                                 "type": "string",
-                                "example": "dika"
+                                "example": "rizky"
                               },
                               "age": {
                                 "type": "integer",
@@ -754,7 +754,7 @@
                                   },
                                   "email": {
                                     "type": "string",
-                                    "example": "dika@mail.com"
+                                    "example": "rizky@mail.com"
                                   }
                                 }
                               }
