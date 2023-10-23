@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Button from '../src/components/Button/Button'
 
 function App() {
   return (
@@ -17,6 +18,21 @@ function App() {
         >
           Learn React
         </a>
+        <Button
+        text={'View'}
+        variant='primary'
+        onClick={()=>{console.log('View')}}
+        />
+        <Button
+        text={'View'}
+        variant='primary'
+        onClick={()=>{console.log('Delete')}}
+        />
+        <Button
+        text={'View'}
+        variant='primary'
+        onClick={()=>{console.log('Submit')}}
+        />
       </header>
     </div>
   );
