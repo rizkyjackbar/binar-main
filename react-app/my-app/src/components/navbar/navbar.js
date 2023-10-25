@@ -1,13 +1,13 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Navbar() {
   const navbarStyle = {
-    backgroundColor: '#f1f3ff'
+    backgroundColor: "#f1f3ff",
   };
 
   const linkStyle = {
-    marginRight: '30px',
+    marginRight: "30px",
   };
 
   return (
@@ -65,7 +65,11 @@ function Navbar() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="btn btn-success" style={{ borderRadius: '2px' }} href="#register">
+                <a
+                  className="btn btn-success"
+                  style={{ borderRadius: "2px" }}
+                  href="#register"
+                >
                   Register
                 </a>
               </li>
