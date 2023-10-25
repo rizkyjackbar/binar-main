@@ -1,25 +1,23 @@
-// import logo from './logo.svg';
-import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
-import "./Dashboard.css";
-import Navbar from "./components/navbar/navbar";
-import OurServices from "./components/ourServices/OurServices";
-import Layanan from "./components/layanan/layanan";
-import WhyUs from "./components/whyUs/WhyUs";
-import Testimonial from "./components/testimonial/testimonial";
-import FAQ from "./components/faq/faq";
-import Footer from "./components/footer/footer";
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <OurServices />
-      <Layanan />
-      <WhyUs />
-      <Testimonial />
-      <FAQ />
-      <Footer />
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
