@@ -11,7 +11,7 @@ function NotFound() {
     console.log("Hello");
   }, []);
 
-  return <div className="car">
+  return <div className="404">
     <h1>404 | This Is Page Not Found</h1>
   </div>;
 }
