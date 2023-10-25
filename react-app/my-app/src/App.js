@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Button from "./components/Button/button";
-import { Button as MuiButton } from "@mui/material";
+// import Button from "./components/Button/button";
+import Button from '@mui/material/Button';
 
 function App() {
   const [count, setCount] = useState(0);
