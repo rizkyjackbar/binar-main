@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 // import Button from "./components/Button/button";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -48,8 +48,6 @@ function App() {
         >
           Reset
         </Button>
-
-        
       </header>
     </div>
   );
