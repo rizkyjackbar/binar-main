@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 // import logo from "./logo.svg";
-import "./App.css";
+import './App.css';
 // import Button from "./components/Button/button";
 // import Button from "@mui/material/Button";
 
@@ -9,7 +9,7 @@ function Car() {
 
   useEffect(() => {
     fetch(
-      "https://raw.githubusercontent.com/fnurhidayat/probable-garbanzo/main/data/cars.min.json"
+      'https://raw.githubusercontent.com/fnurhidayat/probable-garbanzo/main/data/cars.min.json',
     )
       .then((res) => res.json())
       .then((data) => setCars(data))
