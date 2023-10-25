@@ -5,15 +5,19 @@ import "./App.css";
 // import Button from "@mui/material/Button";
 
 function NotFound() {
-//   const [count, setCount] = useState(0);
+  //   const [count, setCount] = useState(0);
 
   useEffect(() => {
     console.log("Hello");
   }, []);
 
-  return <div className="404">
-    <h1>404 | This Is Page Not Found</h1>
-  </div>;
+  return (
+    <div className="car">
+      <header className="App-header">
+        <h1>404 | This Is Page Not Found</h1>
+      </header>
+    </div>
+  );
 }
 
 export default NotFound;
