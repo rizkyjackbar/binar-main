@@ -3,11 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Navbar() {
   const navbarStyle = {
-    backgroundColor: 'lightgray', // Ganti dengan warna latar belakang yang Anda inginkan
+    backgroundColor: '#f1f3ff'
   };
 
   const linkStyle = {
-    marginRight: '30px', // Ganti dengan jarak yang Anda inginkan
+    marginRight: '30px',
   };
 
   return (
