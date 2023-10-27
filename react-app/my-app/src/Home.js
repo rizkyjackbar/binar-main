@@ -4,7 +4,7 @@ import "./App.css";
 // import Button from "./components/Button/button";
 import Button from "@mui/material/Button";
 
-function App() {
+function Home() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -53,4 +53,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
