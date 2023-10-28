@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import NotFound from "./404";
+import RegisterPage from "./Register";
 import SearchCars from "./SearchCars";
 import reportWebVitals from './reportWebVitals';
 
@@ -11,8 +12,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/homepage" element={<App />}></Route>
+      <Route path="/Homepage" element={<App />}></Route>
       <Route path="/cariMobil" element={<SearchCars />}></Route>
+      <Route path="/Register" element={<RegisterPage />}></Route>
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
   </BrowserRouter>
