@@ -544,197 +544,242 @@ function App() {
           </div>
         </div>
       </section>
-      <section id="faq" className="faq-container" style={{ paddingTop: "30px" }}>
-  <div className="container">
-    <div className="row">
-      <div className="col-lg-6">
-        <div className="faQ" style={{ marginBottom: "20px" }}>
-          <h3><b>Frequently Asked Questions</b></h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-        </div>
-      </div>
-      <div className="col-lg-6">
+      <section
+        id="faq"
+        className="faq-container"
+        style={{ paddingTop: "30px" }}
+      >
         <div className="container">
-          <div className="accordion" id="accordionExample">
-            <div className="accordion-item" style={{ margin: "16px" }}>
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseOne"
-                  aria-expanded="false"
-                  aria-controls="collapseOne"
-                >
-                  Apa saja syarat yang dibutuhkan?
-                </button>
-              </h2>
-              <div
-                id="collapseOne"
-                className="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolore tenetur debitis, recusandae aspernatur, tempore
-                  perspiciatis cum harum quod distinctio consectetur
-                  mollitia unde. Saepe quia nulla facere, sunt id dicta! Eius.
-                </div>
+          <div className="row">
+            <div className="col-lg-6">
+              <div className="faQ" style={{ marginBottom: "20px" }}>
+                <h3>
+                  <b>Frequently Asked Questions</b>
+                </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
               </div>
             </div>
-          </div>
+            <div className="col-lg-6">
+              <div className="container">
+                <div className="accordion" id="accordionExample">
+                  <div className="accordion-item" style={{ margin: "16px" }}>
+                    <h2 className="accordion-header">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne"
+                        aria-expanded="false"
+                        aria-controls="collapseOne"
+                      >
+                        Apa saja syarat yang dibutuhkan?
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseOne"
+                      className="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div className="accordion-body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolore tenetur debitis, recusandae aspernatur, tempore
+                        perspiciatis cum harum quod distinctio consectetur
+                        mollitia unde. Saepe quia nulla facere, sunt id dicta!
+                        Eius.
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-          <div className="accordion" id="accordionExample">
-            <div className="accordion-item" style={{ margin: "16px" }}>
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="collapseTwo"
-                >
-                  Berapa hari minimal sewa mobil lepas kunci?
-                </button>
-              </h2>
-              <div
-                id="collapseTwo"
-                className="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod
-                  eveniet maiores molestiae? Placeat beatae, nulla doloribus
-                  facilis iste dolores dignissimos, perferendis at hic, nisi
-                  nihil laboriosam officia illo accusamus ipsam.
+                <div className="accordion" id="accordionExample">
+                  <div className="accordion-item" style={{ margin: "16px" }}>
+                    <h2 className="accordion-header">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo"
+                        aria-expanded="false"
+                        aria-controls="collapseTwo"
+                      >
+                        Berapa hari minimal sewa mobil lepas kunci?
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseTwo"
+                      className="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div className="accordion-body">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Quod eveniet maiores molestiae? Placeat beatae,
+                        nulla doloribus facilis iste dolores dignissimos,
+                        perferendis at hic, nisi nihil laboriosam officia illo
+                        accusamus ipsam.
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
 
-          <div className="accordion" id="accordionExample">
-            <div className="accordion-item" style={{ margin: "16px" }}>
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  Berapa hari sebelumnya sabaiknya booking sewa mobil?
-                </button>
-              </h2>
-              <div
-                id="collapseThree"
-                className="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic
-                  assumenda sit molestias quia nesciunt, harum saepe iure nihil
-                  inventore omnis, quibusdam obcaecati officia debitis minima
-                  sed? Vero ad minima harum!
+                <div className="accordion" id="accordionExample">
+                  <div className="accordion-item" style={{ margin: "16px" }}>
+                    <h2 className="accordion-header">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree"
+                        aria-expanded="false"
+                        aria-controls="collapseThree"
+                      >
+                        Berapa hari sebelumnya sabaiknya booking sewa mobil?
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseThree"
+                      className="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div className="accordion-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Hic assumenda sit molestias quia nesciunt, harum
+                        saepe iure nihil inventore omnis, quibusdam obcaecati
+                        officia debitis minima sed? Vero ad minima harum!
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div className="accordion" id="accordionExample">
-            <div className="accordion-item" style={{ margin: "16px" }}>
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseFour"
-                  aria-expanded="false"
-                  aria-controls="collapseFour"
-                >
-                  Apakah Ada biaya antar-jemput?
-                </button>
-              </h2>
-              <div
-                id="collapseFour"
-                className="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Sapiente, reiciendis voluptatibus? Molestias reprehenderit non
-                  tempora quaerat esse officia inventore voluptatum dignissimos
-                  minus, dolore aspernatur vero eligendi ex corporis ratione
-                  ipsum?
+                <div className="accordion" id="accordionExample">
+                  <div className="accordion-item" style={{ margin: "16px" }}>
+                    <h2 className="accordion-header">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour"
+                        aria-expanded="false"
+                        aria-controls="collapseFour"
+                      >
+                        Apakah Ada biaya antar-jemput?
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseFour"
+                      className="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div className="accordion-body">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Sapiente, reiciendis voluptatibus? Molestias
+                        reprehenderit non tempora quaerat esse officia inventore
+                        voluptatum dignissimos minus, dolore aspernatur vero
+                        eligendi ex corporis ratione ipsum?
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div className="accordion" id="accordionExample">
-            <div className="accordion-item" style={{ margin: "16px" }}>
-              <h2 className="accordion-header">
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseFive"
-                  aria-expanded="false"
-                  aria-controls="collapseFive"
-                >
-                  Bagaimana jika terjadi kecelakaan
-                </button>
-              </h2>
-              <div
-                id="collapseFive"
-                className="accordion-collapse collapse"
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Laudantium dolore neque laborum laboriosam ipsam, voluptate
-                  excepturi quidem! Illum perferendis debitis quisquam labore
-                  voluptas. Eveniet, ipsum. Dolores doloribus accusamus at maxime!
+                <div className="accordion" id="accordionExample">
+                  <div className="accordion-item" style={{ margin: "16px" }}>
+                    <h2 className="accordion-header">
+                      <button
+                        className="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseFive"
+                        aria-expanded="false"
+                        aria-controls="collapseFive"
+                      >
+                        Bagaimana jika terjadi kecelakaan
+                      </button>
+                    </h2>
+                    <div
+                      id="collapseFive"
+                      className="accordion-collapse collapse"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div className="accordion-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Laudantium dolore neque laborum laboriosam ipsam,
+                        voluptate excepturi quidem! Illum perferendis debitis
+                        quisquam labore voluptas. Eveniet, ipsum. Dolores
+                        doloribus accusamus at maxime!
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section style={{ paddingTop: "168px", marginBottom: "100px" }}>
-  <div className="container">
-    <div className="row" style={{ margin: "auto", fontFamily: "Helvetica", fontSize: "14px", fontStyle: "normal", fontWeight: "300", lineHeight: "20px" }}>
-      <div className="col-md-3 footer">
-        <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
-        <p>binarcarrental@gmail.com</p>
-        <p>081-233-334-808</p>
-      </div>
-      <div className="col-md-3 footer">
-        <p>Our services</p>
-        <p>Why Us</p>
-        <p>Testimonial</p>
-        <p>FAQ</p>
-      </div>
-      <div className="col-md-3 footer mb-3">
-        <p>Connect With Us</p>
-        <div className="imgConnect" style={{ width: "32px", height: "32px", display: "flex" }}>
-          <img src={iconFaceboook} alt="Connect To Facebook" style={{ marginRight: "16px" }} />
-          <img src={iconInstagram} alt="Connect To Instagram" style={{ marginRight: "16px" }} />
-          <img src={iconTwitter} alt="Connect To Twitter" style={{ marginRight: "16px" }} />
-          <img src={iconMail} alt="Connect To Email" style={{ marginRight: "16px" }} />
-          <img src={iconTwich} alt="Connect To Twitch" style={{ marginRight: "16px" }} />
+      </section>
+      <section style={{ paddingTop: "168px", marginBottom: "100px" }}>
+        <div className="container">
+          <div
+            className="row"
+            style={{
+              margin: "auto",
+              fontFamily: "Helvetica",
+              fontSize: "14px",
+              fontStyle: "normal",
+              fontWeight: "300",
+              lineHeight: "20px",
+            }}
+          >
+            <div className="col-md-3 footer">
+              <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
+              <p>binarcarrental@gmail.com</p>
+              <p>081-233-334-808</p>
+            </div>
+            <div className="col-md-3 footer">
+              <p>Our services</p>
+              <p>Why Us</p>
+              <p>Testimonial</p>
+              <p>FAQ</p>
+            </div>
+            <div className="col-md-3 footer mb-3">
+              <p>Connect With Us</p>
+              <div
+                className="imgConnect"
+                style={{ width: "32px", height: "32px", display: "flex" }}
+              >
+                <img
+                  src={iconFaceboook}
+                  alt="Connect To Facebook"
+                  style={{ marginRight: "16px" }}
+                />
+                <img
+                  src={iconInstagram}
+                  alt="Connect To Instagram"
+                  style={{ marginRight: "16px" }}
+                />
+                <img
+                  src={iconTwitter}
+                  alt="Connect To Twitter"
+                  style={{ marginRight: "16px" }}
+                />
+                <img
+                  src={iconMail}
+                  alt="Connect To Email"
+                  style={{ marginRight: "16px" }}
+                />
+                <img
+                  src={iconTwich}
+                  alt="Connect To Twitch"
+                  style={{ marginRight: "16px" }}
+                />
+              </div>
+            </div>
+            <div className="col-md-3 footer">
+              <p>Copyright Binar 2022</p>
+              <img
+                src={binarLogo}
+                style={{ maxWidth: "100px" }}
+                alt="Logo Binar"
+              />
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="col-md-3 footer">
-        <p>Copyright Binar 2022</p>
-        <img src={binarLogo} style={{ maxWidth: "100px" }} alt="Logo Binar" />
-      </div>
-    </div>
-  </div>
-</section>
-
+      </section>
     </div>
   );
 }
