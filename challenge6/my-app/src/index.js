@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import NotFound from "./404";
 import RegisterPage from "./Register";
+import SignIn from "./Login";
 import SearchCars from "./SearchCars";
 import reportWebVitals from './reportWebVitals';
 
@@ -15,6 +16,7 @@ root.render(
       <Route path="/Homepage" element={<App />}></Route>
       <Route path="/cariMobil" element={<SearchCars />}></Route>
       <Route path="/Register" element={<RegisterPage />}></Route>
+      <Route path="/Login" element={<SignIn />}></Route>
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
   </BrowserRouter>
