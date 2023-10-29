@@ -17,7 +17,7 @@ import MuiAlert from "@mui/material/Alert";
 const defaultTheme = createTheme();
 
 function SignUp() {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: "",
     age: "",
     address: "",
@@ -25,7 +25,9 @@ function SignUp() {
     email: "",
     password: "",
     confirmPassword: "",
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
@@ -73,6 +75,9 @@ function SignUp() {
         .then((response) => {
           console.log("Admin registration successful", response.data);
           openSnackbar("Registration successful", "success");
+
+          // Setel ulang data formulir ke nilai awal
+          setFormData(initialFormData);
         })
         .catch((error) => {
           console.error("Admin registration error", error);
@@ -87,6 +92,9 @@ function SignUp() {
         .then((response) => {
           console.log("Member registration successful", response.data);
           openSnackbar("Registration successful", "success");
+
+          // Setel ulang data formulir ke nilai awal
+          setFormData(initialFormData);
         })
         .catch((error) => {
           console.error("Member registration error", error);
