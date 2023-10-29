@@ -10,6 +10,9 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import axios from "axios";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 
 const defaultTheme = createTheme();
 
@@ -24,6 +27,23 @@ function SignUp() {
     confirmPassword: "",
   });
 
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarSeverity, setSnackbarSeverity] = useState("success");
+
+  const openSnackbar = (message, severity) => {
+    setSnackbarMessage(message);
+    setSnackbarSeverity(severity);
+    setSnackbarOpen(true);
+  };
+
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setSnackbarOpen(false);
+  };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -34,7 +54,50 @@ function SignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
+    if (
+      !formData.name ||
+      !formData.age ||
+      !formData.address ||
+      !formData.role ||
+      !formData.email ||
+      !formData.password ||
+      !formData.confirmPassword
+    ) {
+      openSnackbar("Please fill in all fields.", "error");
+      return;
+    }
+
+    if (formData.role === "admin") {
+      axios
+        .post("http://localhost:3100/auth/admin/register", formData)
+        .then((response) => {
+          console.log("Admin registration successful", response.data);
+          openSnackbar("Registration successful", "success");
+        })
+        .catch((error) => {
+          console.error("Admin registration error", error);
+          openSnackbar(
+            "Registration failed. This email is already in use.",
+            "error"
+          );
+        });
+    } else if (formData.role === "member") {
+      axios
+        .post("http://localhost:3100/auth/member/register", formData)
+        .then((response) => {
+          console.log("Member registration successful", response.data);
+          openSnackbar("Registration successful", "success");
+        })
+        .catch((error) => {
+          console.error("Member registration error", error);
+          openSnackbar(
+            "Registration failed. This email is already in use.",
+            "error"
+          );
+        });
+    } else {
+      console.error("Invalid role:", formData.role);
+    }
   };
 
   return (
@@ -144,12 +207,17 @@ function SignUp() {
                 />
               </Grid>
             </Grid>
-            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
               Sign Up
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
@@ -157,6 +225,20 @@ function SignUp() {
           </Box>
         </Box>
       </Container>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+      >
+        <MuiAlert
+          elevation={6}
+          variant="filled"
+          severity={snackbarSeverity}
+          onClose={handleCloseSnackbar}
+        >
+          {snackbarMessage}
+        </MuiAlert>
+      </Snackbar>
     </ThemeProvider>
   );
 }
