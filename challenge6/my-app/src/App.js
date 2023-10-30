@@ -95,7 +95,7 @@ function App() {
                   <a
                     className="btn btn-success"
                     style={{ borderRadius: "2px" }}
-                    href="#register"
+                    href="/Register"
                   >
                     Register
                   </a>
