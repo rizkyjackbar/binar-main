@@ -6,6 +6,7 @@ import App from './App';
 import NotFound from "./404";
 import RegisterPage from "./Register";
 import SignIn from "./Login";
+import CreateCarForm from "./CreateCar";
 import SearchCars from "./SearchCars";
 import reportWebVitals from './reportWebVitals';
 import Protected from './components/protected';
@@ -18,6 +19,7 @@ root.render(
       <Route index element={<App />}></Route>
       <Route path="/cariMobil" element={<Protected><SearchCars /></Protected>}></Route>
       <Route path="/Register" element={<RegisterPage />}></Route>
+      <Route path="/createcar" element={<CreateCarForm />}></Route>
       <Route path="/Login" element={<SignIn />}></Route>
       <Route path="*" element={<NotFound />}></Route>
       </Route>
