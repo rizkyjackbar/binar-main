@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -67,6 +67,16 @@ export default function SignIn() {
         openSnackbar("Login failed. Please check your credentials.", "error");
       });
   };
+
+  // eslint-disable-next-line
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      navigate("/cariMobil");
+    }
+    // eslint-enable
+  }, [navigate]);
 
   return (
     <ThemeProvider theme={defaultTheme}>

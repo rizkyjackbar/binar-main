@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
@@ -13,6 +13,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import { useNavigate } from "react-router-dom";
 
 const defaultTheme = createTheme();
 
@@ -32,7 +33,7 @@ function SignUp() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
-
+  const navigate = useNavigate();
   const openSnackbar = (message, severity) => {
     setSnackbarMessage(message);
     setSnackbarSeverity(severity);
@@ -76,7 +77,7 @@ function SignUp() {
           console.log("Admin registration successful", response.data);
           openSnackbar("Registration successful", "success");
 
-          // Setel ulang data formulir ke nilai awal
+          
           setFormData(initialFormData);
         })
         .catch((error) => {
@@ -93,7 +94,6 @@ function SignUp() {
           console.log("Member registration successful", response.data);
           openSnackbar("Registration successful", "success");
 
-          // Setel ulang data formulir ke nilai awal
           setFormData(initialFormData);
         })
         .catch((error) => {
@@ -107,6 +107,14 @@ function SignUp() {
       console.error("Invalid role:", formData.role);
     }
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      navigate("/cariMobil");
+    }
+  }, [navigate]);
 
   return (
     <ThemeProvider theme={defaultTheme}>
