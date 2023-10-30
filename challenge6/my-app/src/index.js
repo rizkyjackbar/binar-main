@@ -8,16 +8,19 @@ import RegisterPage from "./Register";
 import SignIn from "./Login";
 import SearchCars from "./SearchCars";
 import reportWebVitals from './reportWebVitals';
+import Protected from './components/protected';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/Homepage" element={<App />}></Route>
-      <Route path="/cariMobil" element={<SearchCars />}></Route>
+      <Route path='/'>
+      <Route index element={<App />}></Route>
+      <Route path="/cariMobil" element={<Protected><SearchCars /></Protected>}></Route>
       <Route path="/Register" element={<RegisterPage />}></Route>
       <Route path="/Login" element={<SignIn />}></Route>
       <Route path="*" element={<NotFound />}></Route>
+      </Route>
     </Routes>
   </BrowserRouter>
 );
