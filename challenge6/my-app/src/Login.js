@@ -68,14 +68,13 @@ export default function SignIn() {
       });
   };
 
-  // eslint-disable-next-line
   useEffect(() => {
     const token = localStorage.getItem("token");
 
     if (token) {
       navigate("/cariMobil");
     }
-    // eslint-enable
+    
   }, [navigate]);
 
   return (
