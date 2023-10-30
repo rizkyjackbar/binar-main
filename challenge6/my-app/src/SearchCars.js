@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
-// import logo from "./logo.svg";
+import { useNavigate } from "react-router-dom";
 import "./App.css";
-// import Button from "./components/Button/button";
-// import Button from "@mui/material/Button";
 
 function SearchCars() {
-  //   const [count, setCount] = useState(0);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
   useEffect(() => {
     console.log("Hello");
@@ -15,6 +18,7 @@ function SearchCars() {
     <div className="car">
       <header className="App-header">
         <h1>This Is Page For Searching Cars</h1>
+        <button onClick={handleLogout}>Logout</button>
       </header>
     </div>
   );
