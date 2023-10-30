@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import { useNavigate } from "react-router-dom";
 
 const defaultTheme = createTheme();
 
@@ -22,6 +23,7 @@ export default function SignIn() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
+  const navigate = useNavigate();
 
   const openSnackbar = (message, severity) => {
     setSnackbarMessage(message);
@@ -55,6 +57,10 @@ export default function SignIn() {
       .then((response) => {
         console.log("Admin login successful", response.data);
         openSnackbar("Login successful", "success");
+
+        localStorage.setItem("token", response.data.token);
+
+        navigate("/cariMobil");
       })
       .catch((error) => {
         console.error("Admin login error", error);
