@@ -9,7 +9,7 @@ import SignIn from "./Login";
 import CreateCarForm from "./CreateCar";
 import SearchCars from "./SearchCars";
 import reportWebVitals from './reportWebVitals';
-import Protected from './components/protected';
+// import Protected from './components/protected';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,12 +17,13 @@ root.render(
     <Routes>
       <Route path='/'>
       <Route index element={<App />}></Route>
-      <Route path="/cariMobil" element={<Protected><SearchCars /></Protected>}></Route>
+      {/* <Route path="/cariMobil" element={<Protected><SearchCars /></Protected>}></Route> */}
+      <Route path="/cariMobil" element={<SearchCars />}></Route>
       <Route path="/Register" element={<RegisterPage />}></Route>
       <Route path="/createcar" element={<CreateCarForm />}></Route>
       <Route path="/Login" element={<SignIn />}></Route>
-      <Route path="*" element={<NotFound />}></Route>
       </Route>
+      <Route path="*" element={<NotFound />}></Route>
     </Routes>
   </BrowserRouter>
 );
