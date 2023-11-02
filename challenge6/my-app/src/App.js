@@ -24,7 +24,7 @@ function App() {
     <div>
       <nav className="navbar navbar-expand-lg">
         <div className="container">
-          <a className="navbar-brand" href="mainSection.html">
+          <a className="navbar-brand" href="/">
             Binar Rent Car's
           </a>
           <button
@@ -122,7 +122,7 @@ function App() {
               </div>
               <a
                 className="btn btn-success"
-                href="../challenge2/task2/tamplate-task-2/public/index.example.html"
+                href="/cars"
                 style={{ borderRadius: "2px" }}
               >
                 Mulai Sewa Mobil
@@ -532,12 +532,13 @@ function App() {
                     adipisci obcaecati assumenda enim necessitatibus. Minus,
                     sint blanditiis! Alias provident dolor quis ea.
                   </p>
-                  <button
+                  <a
                     className="btn btn-success"
+                    href="/cars"
                     style={{ borderRadius: "2px" }}
                   >
                     Mulai Sewa Mobil
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
