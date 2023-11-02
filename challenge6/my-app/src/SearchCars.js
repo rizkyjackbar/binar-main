@@ -331,7 +331,9 @@ function SearchCars() {
           <div className="row justify-content-center">
             <div className="col-lg-11">
               {filteredCars.length === 0 ? (
-                <h2>Mobil Tidak Tersedia, Silahkan Cari di Waktu Lain</h2>
+                <div className="alert alert-danger text-center" role="alert">
+                  <h2>Mohon Maaf, Mobil tidak tersedia di waktu ini.</h2>
+                </div>
               ) : (
                 <div className="row">
                   {filteredCars.map((car, index) => (
