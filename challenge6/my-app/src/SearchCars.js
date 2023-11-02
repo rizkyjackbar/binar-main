@@ -72,6 +72,9 @@ function SearchCars() {
       return true;
     });
 
+    // Sort the filtered array based
+    filtered.sort((a, b) => a.capacity - b.capacity);
+
     setFilteredCars(filtered);
     console.log(filtered);
   };
