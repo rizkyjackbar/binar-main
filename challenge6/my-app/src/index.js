@@ -18,7 +18,7 @@ root.render(
       <Route path='/'>
       <Route index element={<App />}></Route>
       {/* <Route path="/cariMobil" element={<Protected><SearchCars /></Protected>}></Route> */}
-      <Route path="/cariMobil" element={<SearchCars />}></Route>
+      <Route path="/cars" element={<SearchCars />}></Route>
       <Route path="/Register" element={<RegisterPage />}></Route>
       <Route path="/createcar" element={<CreateCarForm />}></Route>
       <Route path="/Login" element={<SignIn />}></Route>
