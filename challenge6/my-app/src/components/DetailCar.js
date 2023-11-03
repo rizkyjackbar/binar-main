@@ -14,7 +14,7 @@ function detailCar() {
   return (
     <div className="car">
       <header className="App-header">
-        <h1>This is file for detail Car</h1>
+        <h1>This is Page for detail Car</h1>
       </header>
     </div>
   );
