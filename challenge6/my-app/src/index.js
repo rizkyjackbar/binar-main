@@ -3,11 +3,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import NotFound from "./404";
-import RegisterPage from "./Register";
-import SignIn from "./Login";
-import CreateCarForm from "./CreateCar";
-import SearchCars from "./SearchCars";
+import NotFound from "./components/404";
+import RegisterPage from "./components/Register";
+import SignIn from "./components/Login";
+import CreateCarForm from "./components/CreateCar";
+import SearchCars from "./components/SearchCars";
 import reportWebVitals from './reportWebVitals';
 // import Protected from './components/protected';
 
