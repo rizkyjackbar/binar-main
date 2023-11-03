@@ -83,7 +83,7 @@ function SearchCars() {
     <div>
       <nav className="navbar navbar-expand-lg">
         <div className="container">
-          <a className="navbar-brand" href="mainSection.html">
+          <a className="navbar-brand" href="/">
             Binar Rent Car's
           </a>
           <button
