@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import mercedesImage from "./images/Mercedes Car EQC 300kW Edition - 900x598 1.png";
-import icon_passanger from "./images/fi_users.png";
-import iconFaceboook from "./images/icon_facebook.png";
-import iconInstagram from "./images/icon_instagram.png";
-import iconMail from "./images/icon_mail.png";
-import iconTwitter from "./images/icon_twitter.png";
-import iconTwich from "./images/icon_twitch.png";
-import binarLogo from "./images/logoBinar.png";
-import carSample from "./images/carSample.jpg";
-import user1 from "./images/fi_users1.png";
-import setting from "./images/fi_settings.png";
-import calender from "./images/fi_calendar.png";
+import mercedesImage from "../images/Mercedes Car EQC 300kW Edition - 900x598 1.png";
+import icon_passanger from "../images/fi_users.png";
+import iconFaceboook from "../images/icon_facebook.png";
+import iconInstagram from "../images/icon_instagram.png";
+import iconMail from "../images/icon_mail.png";
+import iconTwitter from "../images/icon_twitter.png";
+import iconTwich from "../images/icon_twitch.png";
+import binarLogo from "../images/logoBinar.png";
+import carSample from "../images/carSample.jpg";
+import user1 from "../images/fi_users1.png";
+import setting from "../images/fi_settings.png";
+import calender from "../images/fi_calendar.png";
 
 function SearchCars() {
   const [cars, setCars] = useState([]);
@@ -399,7 +399,7 @@ function SearchCars() {
                             </div>
                           </div>
                           <a
-                            href="/sewa-mobil"
+                            href="/detailcar"
                             className="btn btn-success"
                             style={{ width: "100%", marginTop: "20px" }}
                           >
