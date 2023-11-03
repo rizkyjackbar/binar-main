@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import NotFound from "./components/404";
+import DetailCar from "./components/DetailCar";
 import RegisterPage from "./components/Register";
 import SignIn from "./components/Login";
 import CreateCarForm from "./components/CreateCar";
@@ -22,6 +23,7 @@ root.render(
       <Route path="/Register" element={<RegisterPage />}></Route>
       <Route path="/createcar" element={<CreateCarForm />}></Route>
       <Route path="/Login" element={<SignIn />}></Route>
+      <Route path="/detailcar" element={<DetailCar />}></Route>
       </Route>
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
