@@ -7,7 +7,6 @@ import iconMail from "../images/icon_mail.png";
 import iconTwitter from "../images/icon_twitter.png";
 import iconTwich from "../images/icon_twitch.png";
 import binarLogo from "../images/logoBinar.png";
-import carSample from "../images/carSample.jpg";
 import user1 from "../images/fi_users1.png";
 import setting from "../images/fi_settings.png";
 import calender from "../images/fi_calendar.png";
@@ -344,7 +343,7 @@ function SearchCars() {
                       >
                         <div className="mt-3 mx-3">
                           <img
-                            src={carSample}
+                            src={car.image}
                             className="card-img-top img-fluid car-image"
                             alt={car.manufacture}
                             style={{
