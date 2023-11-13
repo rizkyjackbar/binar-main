@@ -1,17 +1,17 @@
 class ApplicationError extends Error {
-  get details() {
-    return {};
+  get details () {
+    return {}
   }
 
-  toJSON() {
+  toJSON () {
     return {
       error: {
         name: this.name,
         message: this.message,
-        details: this.details,
+        details: this.details
       }
     }
   }
 }
 
-module.exports = ApplicationError;
+module.exports = ApplicationError
