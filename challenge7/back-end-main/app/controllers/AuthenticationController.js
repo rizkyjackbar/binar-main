@@ -1,46 +1,45 @@
-const ApplicationController = require("./ApplicationController");
-const { EmailNotRegisteredError, InsufficientAccessError, RecordNotFoundError, WrongPasswordError } = require("../errors");
-const { JWT_SIGNATURE_KEY } = require("../../config/application");
+const ApplicationController = require('./ApplicationController')
+const { EmailNotRegisteredError, InsufficientAccessError, RecordNotFoundError, WrongPasswordError, EmailAlreadyTakenError } = require('../errors')
+const { JWT_SIGNATURE_KEY } = require('../../config/application')
 
 class AuthenticationController extends ApplicationController {
-  constructor({
+  constructor ({
     userModel,
     roleModel,
     bcrypt,
-    jwt,
+    jwt
   }) {
-    super();
-    this.userModel = userModel;
-    this.roleModel = roleModel;
-    this.bcrypt = bcrypt;
-    this.jwt = jwt;
+    super()
+    this.userModel = userModel
+    this.roleModel = roleModel
+    this.bcrypt = bcrypt
+    this.jwt = jwt
   }
 
   accessControl = {
-    PUBLIC: "PUBLIC",
-    ADMIN: "ADMIN",
-    CUSTOMER: "CUSTOMER",
+    PUBLIC: 'PUBLIC',
+    ADMIN: 'ADMIN',
+    CUSTOMER: 'CUSTOMER'
   }
 
-  authorize =(rolename) => {
+  authorize = (rolename) => {
     return (req, res, next) => {
       try {
-        const token = req.headers.authorization?.split("Bearer ")[1];
+        const token = req.headers.authorization?.split('Bearer ')[1]
         const payload = this.decodeToken(token)
 
-        if (!!rolename && rolename != payload.role.name)
-          throw new InsufficientAccessError(payload?.role?.name);
+        if (!!rolename && rolename !== payload.role.name) {
+          throw new InsufficientAccessError(payload?.role?.name)
+        }
 
-        req.user = payload;
-        next();
-      }
-
-      catch(err) {
+        req.user = payload
+        next()
+      } catch (err) {
         res.status(401).json({
           error: {
             name: err.name,
             message: err.message,
-            details: err.details || null,
+            details: err.details || null
           }
         })
       }
@@ -49,93 +48,89 @@ class AuthenticationController extends ApplicationController {
 
   handleLogin = async (req, res, next) => {
     try {
-      const email = req.body.email.toLowerCase();
-      const password = req.body.password;
+      const email = req.body.email.toLowerCase()
+      const password = req.body.password
       const user = await this.userModel.findOne({
-        where: { email, },
-        include: [{ model: this.roleModel, attributes: [ "id", "name", ], }]
-      });
+        where: { email },
+        include: [{ model: this.roleModel, attributes: ['id', 'name'] }]
+      })
 
       if (!user) {
-        const err = new EmailNotRegisteredError(email);
-        res.status(404).json(err);
-        return;
+        const err = new EmailNotRegisteredError(email)
+        res.status(404).json(err)
+        return
       }
 
-      const isPasswordCorrect = this.verifyPassword(password, user.encryptedPassword);
+      const isPasswordCorrect = this.verifyPassword(password, user.encryptedPassword)
 
       if (!isPasswordCorrect) {
-        const err = new WrongPasswordError();
-        res.status(401).json(err);
-        return;
+        const err = new WrongPasswordError()
+        res.status(401).json(err)
+        return
       }
 
-      const accessToken = this.createTokenFromUser(user, user.Role);
+      const accessToken = this.createTokenFromUser(user, user.Role)
 
       res.status(201).json({
-        accessToken,
+        accessToken
       })
-    }
-
-    catch(err) {
-      next(err);
+    } catch (err) {
+      next(err)
     }
   }
 
   handleRegister = async (req, res, next) => {
     try {
-      const name = req.body.name;
-      const email = req.body.email.toLowerCase();
-      const password = req.body.password;
-      let existingUser = await this.userModel.findOne({ where: { email, }, });
+      const name = req.body.name
+      const email = req.body.email.toLowerCase()
+      const password = req.body.password
+      const existingUser = await this.userModel.findOne({ where: { email } })
 
-      if (!!existingUser) {
-        const err = new EmailAlreadyTakenError(email);
-        res.status(422).json(err);
-        return;
+      if (existingUser) {
+        const err = new EmailAlreadyTakenError(email)
+        res.status(422).json(err)
+        return
       }
 
       const role = await this.roleModel.findOne({
         where: { name: this.accessControl.CUSTOMER }
-      });
+      })
 
       const user = await this.userModel.create({
         name,
         email,
         encryptedPassword: this.encryptPassword(password),
-        roleId: role.id,
-      }) 
+        roleId: role.id
+      })
 
-      const accessToken = this.createTokenFromUser(user, role);
+      const accessToken = this.createTokenFromUser(user, role)
 
       res.status(201).json({
-        accessToken,
+        accessToken
       })
-    }
-
-    catch(err) {
-      next(err);
+    } catch (err) {
+      next(err)
     }
   }
 
   handleGetUser = async (req, res) => {
-    const user = await this.userModel.findByPk(req.user.id);
+    const user = await this.userModel.findByPk(req.user.id)
 
     if (!user) {
-      const err = new RecordNotFoundError(this.userModel.name);
+      const err = new RecordNotFoundError(this.userModel.name)
       res.status(404).json(err)
-      return;
+      return
     }
 
-    const role = await this.roleModel.findByPk(user.roleId); 
+    const role = await this.roleModel.findByPk(user.roleId)
 
     if (!role) {
-      const err = new RecordNotFoundError(this.roleModel.name);
+      const err = new RecordNotFoundError(this.roleModel.name)
       res.status(404).json(err)
-      return;
+      return
     }
 
-    res.status(200).json(user);
+    res.status(200).json(user)
   }
 
   createTokenFromUser = (user, role) => {
@@ -146,17 +141,17 @@ class AuthenticationController extends ApplicationController {
       image: user.image,
       role: {
         id: role.id,
-        name: role.name,
+        name: role.name
       }
-    }, JWT_SIGNATURE_KEY);
+    }, JWT_SIGNATURE_KEY)
   }
 
-  decodeToken(token) {
-    return this.jwt.verify(token, JWT_SIGNATURE_KEY);
+  decodeToken (token) {
+    return this.jwt.verify(token, JWT_SIGNATURE_KEY)
   }
 
   encryptPassword = (password) => {
-    return this.bcrypt.hashSync(password, 10);
+    return this.bcrypt.hashSync(password, 10)
   }
 
   verifyPassword = (password, encryptedPassword) => {
@@ -164,4 +159,4 @@ class AuthenticationController extends ApplicationController {
   }
 }
 
-module.exports = AuthenticationController;
+module.exports = AuthenticationController
