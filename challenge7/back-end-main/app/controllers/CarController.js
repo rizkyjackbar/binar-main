@@ -1,34 +1,52 @@
-const { Op } = require("sequelize");
-const ApplicationController = require("./ApplicationController");
+const { Op } = require('sequelize')
+const ApplicationController = require('./ApplicationController')
+const CarAlreadyRentedError = require('../errors/CarAlreadyRentedError')
 
 class CarController extends ApplicationController {
-  constructor({ carModel, userCarModel, dayjs }) {
-    super();
-    this.carModel = carModel;
-    this.userCarModel = userCarModel;
-    this.dayjs = dayjs;
+  constructor ({ carModel, userCarModel, dayjs }) {
+    super()
+    this.carModel = carModel
+    this.userCarModel = userCarModel
+    this.dayjs = dayjs
   }
 
   handleListCars = async (req, res) => {
-    const offset = this.getOffsetFromRequest(req);
-    const limit = req.query.pageSize;
-    const query = this.getListQueryFromRequest(req);
-    const cars = await this.carModel.findAll(query);
-    const carCount = await this.carModel.count({ where: query.where, include: query.include, });
-    const pagination = this.buildPaginationObject(req, carCount);
+    try {
+      const query = this.getListQueryFromRequest(req)
+      const cars = await this.carModel.findAll(query)
+      const carCount = await this.carModel.count({ where: query.where, include: query.include })
+      const pagination = this.buildPaginationObject(req, carCount)
 
-    res.status(200).json({
-      cars,
-      meta: {
-        pagination,
-      }
-    });
+      res.status(200).json({
+        cars,
+        meta: {
+          pagination
+        }
+      })
+    } catch (err) {
+      res.status(500).json({
+        error: {
+          name: err.name,
+          message: err.message
+        }
+      })
+    }
   }
 
   handleGetCar = async (req, res) => {
-    const car = await this.getCarFromRequest(req); 
+    try {
+      const car = await this.getCarFromRequest(req)
+      console.log(`Car details: ${JSON.stringify(car)}`)
 
-    res.status(200).json(car);
+      res.status(200).json(car)
+    } catch (err) {
+      res.status(500).json({
+        error: {
+          name: err.name,
+          message: err.message
+        }
+      })
+    }
   }
 
   handleCreateCar = async (req, res) => {
@@ -37,67 +55,63 @@ class CarController extends ApplicationController {
         name,
         price,
         size,
-        image,
-      } = req.body;
+        image
+      } = req.body
 
       const car = await this.carModel.create({
         name,
         price,
         size,
         image,
-        isCurrentlyRented: false,
-      });
+        isCurrentlyRented: false
+      })
 
-      res.status(201).json(car);
-    }
-
-    catch(err) {
+      res.status(201).json(car)
+    } catch (err) {
       res.status(422).json({
         error: {
           name: err.name,
-          message: err.message,
+          message: err.message
         }
-      });
+      })
     }
   }
 
   handleRentCar = async (req, res, next) => {
     try {
-      let { rentStartedAt, rentEndedAt } = req.body;
+      let { rentStartedAt, rentEndedAt } = req.body
       const car = await this.getCarFromRequest(req)
 
-      if (!rentEndedAt) rentEndedAt = this.dayjs(rentStartedAt).add(1, "day");
+      if (!rentEndedAt) rentEndedAt = this.dayjs(rentStartedAt).add(1, 'day')
+
+      console.log(car)
 
       const activeRent = await this.userCarModel.findOne({
         where: {
           carId: car.id,
           rentStartedAt: {
-            [Op.gte]: rentStartedAt,
+            [Op.gte]: rentStartedAt
           },
           rentEndedAt: {
-            [Op.lte]: rentEndedAt, 
+            [Op.lte]: rentEndedAt
           }
         }
-      });
+      })
 
-      if (!!activeRent) {
-        const err = new CarAlreadyRentedError(car);
-        res.status(422).json(err)
-        return;
+      if (activeRent) {
+        throw new CarAlreadyRentedError(car)
       }
 
       const userCar = await this.userCarModel.create({
         userId: req.user.id,
         carId: car.id,
         rentStartedAt,
-        rentEndedAt,
-      });
+        rentEndedAt
+      })
 
       res.status(201).json(userCar)
-    }
-
-    catch(err) {
-      next(err);
+    } catch (err) {
+      next(err)
     }
   }
 
@@ -107,57 +121,55 @@ class CarController extends ApplicationController {
         name,
         price,
         size,
-        image,
-      } = req.body;
+        image
+      } = req.body
 
-      const car = this.getCarFromRequest(req);
+      const car = await this.getCarFromRequest(req)
 
       await car.update({
         name,
         price,
         size,
         image,
-        isCurrentlyRented: false,
-      });
+        isCurrentlyRented: false
+      })
 
-      res.status(200).json(car);
-    }
-
-    catch(err) {
+      res.status(200).json(car)
+    } catch (err) {
       res.status(422).json({
         error: {
           name: err.name,
-          message: err.message,
+          message: err.message
         }
-      });
+      })
     }
   }
 
   handleDeleteCar = async (req, res) => {
-    const car = await this.carModel.destroy(req.params.id); 
-    res.status(204).end();
+    const car = await this.carModel.destroy(req.params.id)
+    res.status(204).end()
   }
 
-  getCarFromRequest(req) {
-    return this.carModel.findByPk(req.params.id);
+  getCarFromRequest (req) {
+    return this.carModel.findByPk(req.params.id)
   }
 
-  getListQueryFromRequest(req) {
-    const { size, availableAt } = req.query;
-    const offset = this.getOffsetFromRequest(req);
-    const limit = req.query.pageSize || 10;
-    const where = {};
+  getListQueryFromRequest (req) {
+    const { size, availableAt } = req.query
+    const offset = this.getOffsetFromRequest(req)
+    const limit = req.query.pageSize || 10
+    const where = {}
     const include = {
       model: this.userCarModel,
-      as: "userCar",
-      required: false,
+      as: 'userCar',
+      required: false
     }
 
-    if (!!size) where.size = size;
-    if (!!availableAt) {
+    if (size) where.size = size
+    if (availableAt) {
       include.where = {
         rentEndedAt: {
-          [Op.gte]: availableAt, 
+          [Op.gte]: availableAt
         }
       }
     }
@@ -166,11 +178,11 @@ class CarController extends ApplicationController {
       include,
       where,
       limit,
-      offset,
-    };
+      offset
+    }
 
-    return query;
+    return query
   }
 }
 
-module.exports = CarController;
+module.exports = CarController
